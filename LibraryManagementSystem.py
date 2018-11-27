@@ -1,4 +1,5 @@
 import pymongo
+
 myclient = pymongo.MongoClient('mongodb://localhost:27017/')
 mydb = myclient['LMS1']
 books = mydb['BOOKS_INFORMATION']
@@ -364,7 +365,7 @@ def changeUserAccountPassword():
         newPassword1 = {'$set': {'user_Password': NewPassword}}
         user.update_one(oldPassword1, newPassword1)
         print('Password change successfully!')
-        adminMenu()
+        userMenu()
 
     elif us2 == 0:
         print('Wrong username or password! Try again.')
